@@ -1,11 +1,11 @@
 function calculateAllSizes(rateX, rateY){
   // Pipe X
-  var pipeSizeX = pipeSize(rateX, 0.20);
+  var pipeSizeX = pipeSize(rateX);
   // Pipe Y
-  var pipeSizeY = pipeSize(rateY, 0.20);
+  var pipeSizeY = pipeSize(rateY);
   // Pipe Z
   var rateZ = rateX + rateY;
-  var pipeSizeZ = pipeSize(rateZ, 0.20);
+  var pipeSizeZ = pipeSize(rateZ);
   return {
     pipeSizeX: pipeSizeX,
     valveSizeX: valveSizeX,
@@ -15,8 +15,13 @@ function calculateAllSizes(rateX, rateY){
   }
 }
 
-function pipeSize(rate, tolerance) {
-  return (1.732 * 12.9 * 200 * rate)/ (208 * tolerance)
+function pipeSize(rate) {
+  // filter through all pipe sizes that allow flow rate with a tolerance of up to 2%
+  var filteredPipes = pipeSizes.filter(function (elem) {
+    return (1.732 * 12.9 * 200 * rate)/ (208 * elem) <= 0.02;
+  })
+  // return pipe size with a tolerance closest to 2%
+  return filteredPipes[0];
 }
 
 function valveSize(rate) {
