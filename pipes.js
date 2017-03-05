@@ -6,7 +6,7 @@ function calculateAllSizes(rateX, rateY){
   var pipeSizeY = pipeSize(rateY);
   var valveSizeY = valveSize(rateY)
   // Pipe Z
-  var rateZ = rateX + rateY;
+  var rateZ = Number(rateX) + Number(rateY);
   var pipeSizeZ = pipeSize(rateZ);
   return {
     pipeSizeX: pipeSizeX,
@@ -47,7 +47,7 @@ function runProgram() {
     var xInput = document.getElementById('flow-rate-x').value;
     var yInput = document.getElementById('flow-rate-y').value;
     var results = calculateAllSizes(xInput, yInput);
-    output.innerHTML = "Pipe X Size: " + results.pipeSizeX + " " + results.valveSizeX ;
+    output.innerHTML = "X Pipe Size: " + results.pipeSizeX + " X Valve Size: " + results.valveSizeX + "<br /> Y Pipe Size: " + results.pipeSizeY + " Y Valve Size: " + results.valveSizeY + "<br /> Z Pipe Size: " + results.pipeSizeZ;
   }
   catch(err){
     output.innerHTML = err.message;
