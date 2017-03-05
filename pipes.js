@@ -42,6 +42,7 @@ var valveSizes = [15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100]
 var calculate = document.getElementById('calculate');
 calculate.addEventListener('click', runProgram);
 var output = document.getElementById('output');
+var errorBox = document.getElementById('error-container');
 function runProgram() {
   try{
     var xInput = document.getElementById('flow-rate-x').value;
@@ -50,6 +51,6 @@ function runProgram() {
     output.innerHTML = "X Pipe Size: " + results.pipeSizeX + " X Valve Size: " + results.valveSizeX + "<br /> Y Pipe Size: " + results.pipeSizeY + " Y Valve Size: " + results.valveSizeY + "<br /> Z Pipe Size: " + results.pipeSizeZ;
   }
   catch(err){
-    output.innerHTML = err.message;
+    errorBox.innerHTML = err.message;
   }
 }
