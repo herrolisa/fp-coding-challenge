@@ -67,9 +67,6 @@ function runProgram() {
   try{
     var xInput = document.getElementById('flow-rate-x').value;
     var yInput = document.getElementById('flow-rate-y').value;
-    if (isNaN(xInput)){
-      throw new Error('Please input numbers for calculation.')
-    }
     var results = calculateAllSizes(xInput, yInput);
     xPipe.innerHTML = '<strong>X Pipe Size:</strong> ' + results.pipeSizeX;
     yPipe.innerHTML = '<strong>Y Pipe Size:</strong> ' + results.pipeSizeY;
