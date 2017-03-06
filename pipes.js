@@ -86,3 +86,24 @@ function runProgram() {
     errorBox.innerHTML = err.message;
   }
 }
+
+var reset = document.getElementById('reset');
+reset.addEventListener('click', resetProgram);
+function resetProgram() {
+  document.getElementById('flow-rate-x').value = "16.45";
+  document.getElementById('flow-rate-y').value = "18.9";
+  errorBox.innerHTML = '';
+  xPipe.innerHTML = '<strong>X Pipe Size:</strong> _____';
+  yPipe.innerHTML = '<strong>Y Pipe Size:</strong> _____';
+  xValve.innerHTML = '<strong>X Valve Size:</strong> _____';
+  yValve.innerHTML = '<strong>Y Valve Size:</strong> _____';
+  zPipe.innerHTML = '<strong>Z Pipe Size:</strong> _____';
+  v1.style.width = '50px';
+  v1.style.height = '50px';
+  v1.style.top = '77.5px';
+  v1.style.left = '75px';
+  v2.style.width = '50px';
+  v2.style.height = '50px';
+  v2.style.top = '172.5px';
+  v2.style.left = '75px';
+}
