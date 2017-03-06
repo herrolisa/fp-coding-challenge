@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <title>Fishpondz Coding Challenge</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
   <label>Pipe X Flow Rate:
     <input id="flow-rate-x" value="16.45" type="text">
@@ -12,6 +14,23 @@
     <input id="flow-rate-y" value="18.9" type="text">
   </label>
   <button id="calculate">Calculate</button>
+
+  <div class="container">
+    <div class="double-pipes">
+      <div id="x-pipe" class="text-box">X Pipe Size: 1</div>
+      <div id="y-pipe" class="text-box">Y Pipe Size: 2</div>
+    </div>
+    <div class="reservoir">
+      <div id="x-valve" class="text-box">X Valve Size: 3</div>
+      <div id="y-valve" class="text-box">Y Valve Size: 4</div>
+      <div id="v1" class="valve"></div>
+      <div id="v2" class="valve"></div>
+    </div>
+    <div class=single-pipe>
+      <div id="z-pipe" class="text-box">Z Pipe Size: 5</div>
+    </div>
+  </div>
+
   <div id="output"></div>
   <div id="error-container"></div>
 

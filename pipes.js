@@ -42,6 +42,11 @@ var valveSizes = [15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100]
 var calculate = document.getElementById('calculate');
 calculate.addEventListener('click', runProgram);
 var output = document.getElementById('output');
+var xPipe = document.getElementById('x-pipe');
+var yPipe = document.getElementById('y-pipe');
+var zPipe = document.getElementById('z-pipe');
+var xValve = document.getElementById('x-valve');
+var yValve = document.getElementById('y-valve');
 var errorBox = document.getElementById('error-container');
 function runProgram() {
   try{
@@ -49,6 +54,11 @@ function runProgram() {
     var yInput = document.getElementById('flow-rate-y').value;
     var results = calculateAllSizes(xInput, yInput);
     output.innerHTML = "X Pipe Size: " + results.pipeSizeX + " X Valve Size: " + results.valveSizeX + "<br /> Y Pipe Size: " + results.pipeSizeY + " Y Valve Size: " + results.valveSizeY + "<br /> Z Pipe Size: " + results.pipeSizeZ;
+    xPipe.innerHTML = "X Pipe Size: " + results.pipeSizeX;
+    yPipe.innerHTML = "Y Pipe Size: " + results.pipeSizeY;
+    xValve.innerHTML = "X Valve Size: " + results.valveSizeX;
+    yValve.innerHTML = "Y Valve Size: " + results.valveSizeY;
+    zPipe.innerHTML = "Z Pipe Size: " + results.pipeSizeZ;
   }
   catch(err){
     errorBox.innerHTML = err.message;
