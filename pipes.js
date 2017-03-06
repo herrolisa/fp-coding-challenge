@@ -41,24 +41,46 @@ var valveSizes = [15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100]
 
 var calculate = document.getElementById('calculate');
 calculate.addEventListener('click', runProgram);
-var output = document.getElementById('output');
 var xPipe = document.getElementById('x-pipe');
 var yPipe = document.getElementById('y-pipe');
 var zPipe = document.getElementById('z-pipe');
 var xValve = document.getElementById('x-valve');
 var yValve = document.getElementById('y-valve');
+var v1 = document.getElementById('v1');
+var v2 = document.getElementById('v2');
 var errorBox = document.getElementById('error-container');
 function runProgram() {
+  errorBox.innerHTML = "";
+  xPipe.innerHTML = "<strong>X Pipe Size:</strong> _____";
+  yPipe.innerHTML = "<strong>Y Pipe Size:</strong> _____";
+  xValve.innerHTML = "<strong>X Valve Size:</strong> _____";
+  yValve.innerHTML = "<strong>Y Valve Size:</strong> _____";
+  zPipe.innerHTML = "<strong>Z Pipe Size:</strong> _____";
+  v1.style.width = "50px";
+  v1.style.height = "50px";
+  v1.style.top = "77.5px";
+  v1.style.left = "75px";
+  v2.style.width = "50px";
+  v2.style.height = "50px";
+  v2.style.top = "172.5px";
+  v2.style.left = "75px";
   try{
     var xInput = document.getElementById('flow-rate-x').value;
     var yInput = document.getElementById('flow-rate-y').value;
     var results = calculateAllSizes(xInput, yInput);
-    output.innerHTML = "X Pipe Size: " + results.pipeSizeX + " X Valve Size: " + results.valveSizeX + "<br /> Y Pipe Size: " + results.pipeSizeY + " Y Valve Size: " + results.valveSizeY + "<br /> Z Pipe Size: " + results.pipeSizeZ;
-    xPipe.innerHTML = "X Pipe Size: " + results.pipeSizeX;
-    yPipe.innerHTML = "Y Pipe Size: " + results.pipeSizeY;
-    xValve.innerHTML = "X Valve Size: " + results.valveSizeX;
-    yValve.innerHTML = "Y Valve Size: " + results.valveSizeY;
-    zPipe.innerHTML = "Z Pipe Size: " + results.pipeSizeZ;
+    xPipe.innerHTML = "<strong>X Pipe Size:</strong> " + results.pipeSizeX;
+    yPipe.innerHTML = "<strong>Y Pipe Size:</strong> " + results.pipeSizeY;
+    xValve.innerHTML = "<strong>X Valve Size:</strong> " + results.valveSizeX;
+    v1.style.width = results.valveSizeX + "px";
+    v1.style.height = results.valveSizeX + "px";
+    v1.style.top = 100 - results.valveSizeX/2 + 2.5 + "px";
+    v1.style.left = 100 - results.valveSizeX/2 + "px";
+    v2.style.width = results.valveSizeY + "px";
+    v2.style.height = results.valveSizeY + "px";
+    v2.style.top = 200 - results.valveSizeY/2 - 2.5 + "px";
+    v2.style.left = 100 - results.valveSizeY/2 + "px";
+    yValve.innerHTML = "<strong>Y Valve Size:</strong> " + results.valveSizeY;
+    zPipe.innerHTML = "<strong>Z Pipe Size:</strong> " + results.pipeSizeZ;
   }
   catch(err){
     errorBox.innerHTML = err.message;
